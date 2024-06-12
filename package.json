@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
+    "stripe":"stripe listen --forward-to localhost:8000/api/order/checkout/webhook",
     "build": "npm install && npx tsc",
     "start": "node dist/index.js"
   },
@@ -22,7 +23,8 @@
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.1",
     "multer": "^1.4.5-lts.1",
-    "paytm-pg-node-sdk": "^1.0.4"
+    "paytm-pg-node-sdk": "^1.0.4",
+    "stripe": "^15.10.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
