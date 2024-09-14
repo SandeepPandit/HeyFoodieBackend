@@ -8,6 +8,7 @@ import myRestaurantRoute from "./routes/MyRestaurantRoute";
 import restaurantRoute from "./routes/RestaurantRoute";
 import orderRoute from "./routes/OrderRoute";
 import { v2 as cloudinary } from "cloudinary";
+
 mongoose
   .connect(process.env.MONGODB_URI as string)
   .then(() => console.log("Connected to database!"));
@@ -35,6 +36,7 @@ app.use("/api/my/restaurant", myRestaurantRoute);
 app.use("/api/restaurant", restaurantRoute);
 app.use("/api/order", orderRoute);
 const PORT = 8000;
+
 app.listen(PORT, () => {
   console.log(`server started on PORT: ${PORT}`);
 });
