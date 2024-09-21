@@ -87,7 +87,7 @@ const getMyRestaurantOrders = async (req: Request, res: Response) => {
   try {
     const restaurant = await Restaurant.findOne({ user: req.userId });
     if (!restaurant) {
-      return res.status(404).json({ message: "restaurant not found" });
+      return res.status(404).json({ message: "Restaurant not found" });
     }
 
     const orders = await Order.find({ restaurant: restaurant._id })
@@ -97,7 +97,7 @@ const getMyRestaurantOrders = async (req: Request, res: Response) => {
     res.json(orders);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "something went wrong" });
+    res.status(500).json({ message: "Something went wrong" });
   }
 };
 
@@ -108,7 +108,7 @@ const updateOrderStatus = async (req: Request, res: Response) => {
 
     const order = await Order.findById(orderId);
     if (!order) {
-      return res.status(404).json({ message: "order not found" });
+      return res.status(404).json({ message: "Order not found" });
     }
 
     const restaurant = await Restaurant.findById(order.restaurant);
@@ -123,7 +123,7 @@ const updateOrderStatus = async (req: Request, res: Response) => {
     res.status(200).json(order);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "unable to update order status" });
+    res.status(500).json({ message: "Unable to update order status" });
   }
 };
 
